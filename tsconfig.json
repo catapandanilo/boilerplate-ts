@@ -20,6 +20,7 @@
       "@src/*": ["./src/*"],
       "@test/*": ["test/*"]
     },
+    "outDir": "./dist",
     "rootDirs": [
       "./src"
     ],

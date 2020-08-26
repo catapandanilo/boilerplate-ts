@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Boilerplate to using with TypeScript",
   "scripts": {
-    "start": "tsnd --inspect --transpile-only --respawn --ignore-watch node_modules src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsnd --inspect --transpile-only --respawn --ignore-watch node_modules src/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
