@@ -1,0 +1,22 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "docker",
+  "database": "boilerplate-ts",
+  "entities": [
+     "src/entities/**/*.ts"
+  ],
+  "migrations": [
+     "src/database/migrations/**/*.ts"
+  ],
+  "subscribers": [
+     "src/database/subscribers/**/*.ts"
+  ],
+  "cli": {
+    "entitiesDir": "src/entities",
+    "migrationsDir": "src/database/migrations",
+    "subscribersDir": "src/database/subscribers"
+  }
+}
