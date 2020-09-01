@@ -1,1 +1,35 @@
 ## Boilerplate to using with TypeScript.
+
+> Dependencies, Libraries and Tools
+- Faker
+  - Generate massive amounts of fake data in the browser and node.js.
+- Jest
+  - Delightful JavaScript Testing.
+- Supertest
+  - A module is to provide a high-level abstraction for testing HTTP.
+- Validator
+  - A library of string validators and sanitizers.
+- Class-validator
+  - Allows use of decorator and non-decorator based validation.Internally uses validator.js to perform validation.
+- Module-alias
+  - Create aliases of directories and register custom module paths in NodeJS like a boss.
+- Config-standard-with-typescript
+  - An ESLint shareable config for TypeScript that is based on eslint-config-standard and has TypeScript specific rules from @typescript-eslint/eslint-plugin.
+- Commit-msg-linter
+  - A git "commit-msg" hook for linting your git commit message against the popular Angular Commit Message Guidelines.
+- Husky
+  - Husky can prevent bad git commit, git push and more 🐶 woof!
+- Lint-staged
+  - Run linters against staged git files and don't let shit slip into your code base!
+- Dotenv
+  - Loads environment variables from .env file
+- Express
+  - Fast, unopinionated, minimalist web framework
+- Nodemon
+  - Simple monitor script for use during development of a node.js app.
+- pg
+  - Non-blocking PostgreSQL client for Node.js. Pure JavaScript and optional native libpq bindings.
+- Typeorm
+  - TypeORM is an ORM that can run in NodeJS, Browser, Cordova, PhoneGap, Ionic, React Native, NativeScript, Expo, and Electron platforms and can be used with TypeScript and JavaScript (ES5, ES6, ES7, ES8).
+- uuidv4
+  - uuidv4 creates v4 UUIDs.
