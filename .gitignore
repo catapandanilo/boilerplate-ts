@@ -3,3 +3,5 @@ coverage
 !src/data
 .env
 dist
+typeorm-tips.md
+config/default.json

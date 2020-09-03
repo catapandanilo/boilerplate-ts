@@ -1,3 +1,4 @@
+import './utils/module-alias'
 import express from 'express'
 import { router } from './routes'
 
