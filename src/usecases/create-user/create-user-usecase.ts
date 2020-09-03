@@ -1,8 +1,8 @@
-import { User } from '../../entities/user'
+import { User } from '@src/entities/user'
 import { CreateUserRequestDTO } from './create-user-dto'
-import { UsersRepository } from '../../repositories/users-repository'
-import { ValidatorProvider } from '../../providers/validators/validator-provider'
-import { MailProvider } from '../../providers/mail/mail-provider'
+import { UsersRepository } from '@src/repositories/users-repository'
+import { ValidatorProvider } from '@src/providers/validators/validator-provider'
+import { MailProvider } from '@src/providers/mail/mail-provider'
 
 export class CreateUserUseCase {
   constructor (

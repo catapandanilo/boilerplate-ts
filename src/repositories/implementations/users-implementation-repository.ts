@@ -1,6 +1,6 @@
-import { User } from './../../entities/user'
-import { EntityRepository, Repository, getCustomRepository, getRepository } from 'typeorm'
+import { User } from '@src/entities/user'
 import { UsersRepository } from '../users-repository'
+import { EntityRepository, Repository, getCustomRepository, getRepository } from 'typeorm'
 
 @EntityRepository(User)
 export class PostgresUsersRepository extends Repository<User> implements UsersRepository {

@@ -1,6 +1,6 @@
-import { PostgresUsersRepository } from '../../repositories/implementations/users-implementation-repository'
-import { MailtrapMailProvider } from '../../providers/mail/implementations/mailtrap-mail-provider'
-import { ValidateProvider } from '../../providers/validators/implementations/validate-provider'
+import { PostgresUsersRepository } from '@src/repositories/implementations/users-implementation-repository'
+import { MailtrapMailProvider } from '@src/providers/mail/implementations/mailtrap-mail-provider'
+import { ValidateProvider } from '@src/providers/validators/implementations/validate-provider'
 import { CreateUserUseCase } from './create-user-usecase'
 import { CreateUserController } from './create-user-controller'
 

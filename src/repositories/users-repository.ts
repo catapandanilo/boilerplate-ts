@@ -1,4 +1,4 @@
-import { User } from './../entities/user'
+import { User } from '@src/entities/user'
 import { PostgresUsersRepository } from './implementations/users-implementation-repository'
 import { Repository } from 'typeorm'
 
