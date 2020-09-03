@@ -6,5 +6,5 @@ import './database'
 dotenv.config()
 
 app.listen(5555, () => {
-  console.log('🏃 Running Server')
+  console.log('🏃 Running Server: 5555')
 })

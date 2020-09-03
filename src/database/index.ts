@@ -1,3 +1,7 @@
 import { createConnection } from 'typeorm'
 
-console.log('createConnection: ', createConnection())
+createConnection()
+  .then(async connection => {
+    console.log('🏃 Database type:', connection.options.type)
+  })
+  .catch(console.error)

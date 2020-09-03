@@ -5,3 +5,4 @@ coverage
 dist
 typeorm-tips.md
 config/default.json
+.vscode

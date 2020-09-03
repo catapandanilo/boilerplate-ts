@@ -1,15 +1,23 @@
-import { UsersRepository } from '../users-repository'
 import { User } from './../../entities/user'
+import { EntityRepository, Repository, getCustomRepository, getRepository } from 'typeorm'
+import { UsersRepository } from '../users-repository'
 
-export class PostgresUsersRepository implements UsersRepository {
-  private readonly users: User[] = []
-
+@EntityRepository(User)
+export class PostgresUsersRepository extends Repository<User> implements UsersRepository {
   async findByEmail (email: string): Promise<User> {
-    const user = this.users.find(user => user.email === email)
+    const user: User | undefined = await this.findOne({
+      where: {
+        email
+      }
+    })
     return user as User
   }
 
-  async save (user: User): Promise<void> {
-    this.users.push(user)
+  getCustomRepository (): PostgresUsersRepository {
+    return getCustomRepository(PostgresUsersRepository)
+  }
+
+  getRepository (): Repository<User> {
+    return getRepository(User)
   }
 }

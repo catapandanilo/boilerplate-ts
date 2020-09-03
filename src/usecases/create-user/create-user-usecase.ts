@@ -1,33 +1,50 @@
-import { UsersRepository } from '../../repositories/users-repository'
-import { MailProvider } from '../../providers/mail-provider'
 import { User } from '../../entities/user'
 import { CreateUserRequestDTO } from './create-user-dto'
-import { getRepository } from 'typeorm'
-import { validate } from 'class-validator'
+import { UsersRepository } from '../../repositories/users-repository'
+import { ValidatorProvider } from '../../providers/validators/validator-provider'
+import { MailProvider } from '../../providers/mail/mail-provider'
 
 export class CreateUserUseCase {
   constructor (
     private readonly usersRepository: UsersRepository,
-    private readonly mailProvider: MailProvider
-  ) {}
+    private readonly mailProvider: MailProvider,
+    private readonly validator: ValidatorProvider
+  ) { }
 
   async execute (data: CreateUserRequestDTO): Promise<void> {
-    const userAlreadyExists = await this.usersRepository.findByEmail(data.email)
-
-    if (userAlreadyExists) {
+    const isUserAlreadyExists = await this.isUserAlreadyExists(data.email)
+    if (isUserAlreadyExists) {
       throw new Error('User already exists.')
     }
 
-    const repo = getRepository(User)
+    const repository = this.usersRepository.getRepository()
 
-    const user = repo.create(data)
+    const user = repository.create(data)
 
-    const errors = await validate(user)
+    const validationErrors = await this.validator.isValid(user)
 
-    if (errors.length === 0) {
-      console.log('danilo errors.length === 0', user)
+    if (validationErrors.length > 0) {
+      throw new Error(`[CreateUser] ${validationErrors.map(error => JSON.stringify(error.constraints))}`)
     }
 
-    console.log('danilo', user)
+    await repository.save(user)
+
+    await this.mailProvider.sendMail({
+      to: {
+        name: data.name,
+        email: data.email
+      },
+      from: {
+        name: 'CSH - Solutions',
+        email: 'catapan@csh.com'
+      },
+      subject: 'Welcome to the platform',
+      body: '<p>You can now login to our platform.</p>'
+    })
+  }
+
+  private async isUserAlreadyExists (email: string): Promise<User> {
+    const customRepository = this.usersRepository.getCustomRepository()
+    return await customRepository.findByEmail(email)
   }
 }
