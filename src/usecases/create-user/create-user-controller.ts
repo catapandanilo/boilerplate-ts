@@ -6,20 +6,20 @@ export class CreateUserController {
     private readonly createUserUseCase: CreateUserUseCase
   ) { }
 
-  async handle (request: Request, response: Response): Promise<Response> {
+  async handle (request: Request, response: Response): Promise<void> {
     const { name, email, password } = request.body
 
-    try {
-      await this.createUserUseCase.execute({
-        name,
-        email,
-        password
-      })
+    const httpResponse = await this.createUserUseCase.execute({
+      name,
+      email,
+      password
+    })
 
-      return response.status(201).send()
-    } catch (err) {
-      return response.status(400).json({
-        message: err.message || 'Unexpected error.'
+    if (httpResponse.statusCode >= 200 && httpResponse.statusCode <= 299) {
+      response.status(httpResponse.statusCode).json(httpResponse.body)
+    } else {
+      response.status(httpResponse.statusCode).json({
+        error: httpResponse.body.message
       })
     }
   }
