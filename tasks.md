@@ -6,14 +6,24 @@
 ⛔️ Not Completed
 
 ---
-⛔️ Add examples in folders:
+✅ Add examples in folders:
 
-- ⛔️ database
-- ⛔️ entities
-- ⛔️ providers
-- ⛔️ useCases
+- ✅ database
+- ✅ entities
+- ✅ providers
+- ✅ useCases
+  
+---
+✅ Add custom errors
+
+---
+✅ Use migrations
 
 ---
 ⛔️ search about use lib overnightjs/core
+
+---
+⛔️ Add unit and functional tests
+⛔️ Use TDD
 
 ---
