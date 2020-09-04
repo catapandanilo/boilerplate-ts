@@ -33,3 +33,5 @@
   - TypeORM is an ORM that can run in NodeJS, Browser, Cordova, PhoneGap, Ionic, React Native, NativeScript, Expo, and Electron platforms and can be used with TypeScript and JavaScript (ES5, ES6, ES7, ES8).
 - uuidv4
   - uuidv4 creates v4 UUIDs.
+- Nodemailer
+  - Send e-mails from Node.js – easy as cake! 🍰✉️
